@@ -23,9 +23,7 @@ d=data_helper()
 train_loader = d.get_train()
 val_loader=d.get_val_data()
 acc_score_val=0
-model=Net(config['input_size'],config['E_node'],config['dropout'],config['dropout_attention'],config['dim_feature']).to(device)
-
-
+model=Net(config['input_size'],config['hidden_size'],config['attention_probs_dropout_prob'],config['dropout'],config['dim_feature'],config['d_model'],config['nhead'],config['num_encoder_layers']).to(device)
 model.apply(weights_init_uniform_rule)
 criterion=torch.nn.BCELoss(size_average=True, reduce=True)
 weight_decay=0.00001
