@@ -5,16 +5,18 @@ import numpy as np
 import torch
 from torch.autograd import Variable
 
-config = {'input_size':625,
-          'E_node':625,
-          'dim_feature':[400,200,25],
+config = {'input_size': 625,
+          'hidden_size':25,
+          'dim_feature': [400,200,25],
           'lr': 0.001,
-          'dropout':0.5 ,
-          'dropout_attention':0.6,
-          'beta1':0.9,
-          'beta2':0.99,
-          'lambda_reg':0.00003,
-        'weight_decay':0.0003
+          'attention_probs_dropout_prob': 0.6,
+          'dropout': 0.5,
+          'beta1': 0.9,
+          'beta2': 0.99,
+          'd_model':128,
+          'nhead':4,
+          'num_encoder_layers':2
+
 }
 setup_seed(2)
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
