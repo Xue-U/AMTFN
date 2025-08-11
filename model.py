@@ -191,7 +191,6 @@ class Net(nn.Module):
             'm_gen': nn.Linear(g, g)
         })
         
-        # 子网络合并，使用模式标记
         self.subnets = nn.ModuleDict({
             's_cl': clinNet(cl, drop_main),
             's_cna': cnaNet(c, drop_main),
